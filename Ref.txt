@@ -1,0 +1,82 @@
+%%%%%%%%%%%%%%%%%%%%% LIVE RELOAD TO ANDROID %%%%%%%%%%%%%%%%%%%%%
+$$$ ionic serve --external -c -b
+$$$ ionic build
+ionic capacitor add android
+ionic capacitor copy android
+$$$ npx cap sync android 4
+$$$ npx cap open android
+
+ionic capacitor run android -l --external --host=192.168.1.33
+
+
+------------------------------------------------------------------
+//→ https://ionicframework.com/docs/cli/commands/serve 0
+
+$ npm install phonegap-plugin-barcodescanner
+$ npm install @awesome-cordova-plugins/barcode-scanner
+
+
+
+$$$ npm install @capacitor/android 2
+$$$ npx capacitor add android 3
+
+$$$ npx capacitor copy android          // update android
+
+$$$ npx capacitor run android -l --host=192.168.1.33  5// run android
+$ npx capacitor run android -l --external --host=192.168.1.33 5 // run android
+$ npx cap run android -l --external
+ionic capacitor run android -l --external
+
+import { Injectable } from '@angular/core';
+
+npm i cordova-plugin-device
+$ ionic integrations enable cordova
+
+        capacitor.cmd run android --no-sync --target emulator-5554 exited with
+
+
+%%%%%%%%%%%%%%%%%%%%% EMAIL COMPOSER %%%%%%%%%%%%%%%%%%%%%
+https://ionicframework.com/docs/native/email-composer
+$ npm install cordova-plugin-email-composer
+$ npm install @awesome-cordova-plugins/email-composer
+$ ionic cap sync
+
+%%%%%%%%%%%%%%%%%%%%% FILE DEVICE %%%%%%%%%%%%%%%%%%%%%
+$ npm install cordova-plugin-file
+$ npm install @awesome-cordova-plugins/file
+$ ionic cap sync
+
+import { File } from '@awesome-cordova-plugins/file/ngx';
+
+%%%%%%%%%%%%%%%%%%%%% IMPLEMENT GEO LOCATION %%%%%%%%%%%%%%%%%%%%%
+
+$ ionic g page pages/map
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+
+..................................................................
+
+https://www.mapbox.com/
+user: j4k@.com
+pass: @3A6z
+tk: pk.eyJ1IjoiamFsemRlbGV6eiIsImEiOiJjbDhxbmswanAyMHZtM3ZvZ2xvYTNpdXd1In0.OFFMQl_bkmTbGYrAG5bpGQX
+
+%%%%%%%%%%%%%%%%%%%%% APP BROWSER %%%%%%%%%%%%%%%%%%%%%
+https://ionicframework.com/docs/native/in-app-browser
+$ npm install cordova-plugin-inappbrowser
+$ npm install @awesome-cordova-plugins/in-app-browser
+$ ionic cap sync
+
+%%%%%%%%%%%%%%%%%%%%% IONIC STORAGE %%%%%%%%%%%%%%%%%%%%%
+https://github.com/ionic-team/ionic-storage
+npm install @ionic/storage-angular
+import { IonicStorageModule } from '@ionic/storage-angular';
+
+
+%%%%%%%%%%%%%%%%%%%%% BARCODE SCANNER %%%%%%%%%%%%%%%%%%%%%
+
+https://ionicframework.com/docs/native/barcode-scanner
+$ npm install phonegap-plugin-barcodescanner
+$ npm install @awesome-cordova-plugins/barcode-scanner
+$ ionic cap sync
