@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-// import { Toast } from '@capacitor/toast';
 import { Camera, CameraResultType } from '@capacitor/camera';
 
 @Component({
@@ -26,12 +25,3 @@ export class Tab1Page {
 }
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-/* const showHelloToast = async () => {
-  await Toast.show({
-    text: 'Clicked!',
-    duration: 'long',
-    position: 'bottom',
-  });
-};
- */
