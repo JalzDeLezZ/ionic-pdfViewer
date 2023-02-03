@@ -1,15 +1,37 @@
 import { Component } from '@angular/core';
+// import { Toast } from '@capacitor/toast';
+import { Camera, CameraResultType } from '@capacitor/camera';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  styleUrls: ['tab1.page.scss'],
 })
 export class Tab1Page {
-
   constructor() {}
+  public imageSrc: any;
 
-  onClick() {
-    console.log('Clicked!');
+  /* onClick() {
+    showHelloToast();
+  } */
+  async onClick() {
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: true,
+      resultType: CameraResultType.Uri,
+    });
+    const imageUrl = image.webPath;
+    this.imageSrc = imageUrl;
   }
 }
+
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+/* const showHelloToast = async () => {
+  await Toast.show({
+    text: 'Clicked!',
+    duration: 'long',
+    position: 'bottom',
+  });
+};
+ */
