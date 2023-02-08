@@ -2,8 +2,8 @@
 ionic serve --external -c -b
 ionic build
 ionic capacitor add android
-ionic capacitor copy android
-npx cap sync android
+ionic cap copy android // npx cap copy android
+ionic cap sync android // npx cap sync android
 npx cap open android
 
 ionic capacitor run android -l --host=192.168.1.33 //HUAWEY
