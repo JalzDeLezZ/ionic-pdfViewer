@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
-import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
+import { BarcodeScanner, SupportedFormat } from '@capacitor-community/barcode-scanner';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -30,7 +30,7 @@ export class Tab3Page implements AfterViewInit, OnDestroy {
     const allowed = await this.checkPermission();
     if (allowed) {
       this.scanActive = true;
-      const result = await BarcodeScanner.startScan();
+      const result = await BarcodeScanner.startScan({ targetedFormats: [SupportedFormat.PDF_417, SupportedFormat.QR_CODE, SupportedFormat.CODE_128] });
       if (result.hasContent) {
         this.result = result.content;
         this.scanActive = false;

@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title slot="start"> Tab 3 </ion-title>
+    <ion-title slot="start"> Test Scanner </ion-title>
     <ion-badge style="margin: 9px" slot="end" [color]="status" mode="ios"
       >0</ion-badge
     >
@@ -10,7 +10,7 @@
 <!-- [style.--ion-background-color]="scanActive ? '#0000' : '#000'" -->
 <ion-content [fullscreen]="true">
   <ion-grid fixed>
-    <ion-row>
+    <ion-row class="btn-content">
       <ion-col size="12">
         <ion-button
           (click)="startScan()"
@@ -20,12 +20,12 @@
           [hidden]="scanActive"
         >
           <ion-icon slot="start" name="scan"></ion-icon>
-          Fucking Scan!!!
+          SCAN!!!
         </ion-button>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-label class="ion-text-center">{{result}}</ion-label>
+      <ion-label>{{result}}</ion-label>
     </ion-row>
     <div class="scan-box" [hidden]="!scanActive"></div>
     <ion-row class="scanner-buttons" [hidden]="!scanActive">

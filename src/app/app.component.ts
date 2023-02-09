@@ -8,3 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   constructor() {}
 }
+/*
+npm install @capacitor/clipboard
+npx cap sync
+
+*/

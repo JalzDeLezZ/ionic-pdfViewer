@@ -1,9 +1,8 @@
 .scanner-buttons {
-  margin: 0px;
+  margin: 0px 12%;
   position: absolute;
   bottom: 10vh;
-  width: 100vw;
-  height: fit-content;
+  width: -webkit-fill-available;
   z-index: 1;
 }
 
@@ -18,4 +17,14 @@
   top: 50%;
   transform: translate(-50%, -50%);
   width: 300px;
+}
+
+ion-label {
+  font-size: 18px;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.btn-content {
+  margin: 12%;
 }
