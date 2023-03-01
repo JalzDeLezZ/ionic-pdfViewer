@@ -1,5 +1,8 @@
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
-import { BarcodeScanner, SupportedFormat } from '@capacitor-community/barcode-scanner';
+import {
+  BarcodeScanner,
+  SupportedFormat,
+} from '@capacitor-community/barcode-scanner';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -8,7 +11,7 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['tab3.page.scss'],
 })
 export class Tab3Page implements AfterViewInit, OnDestroy {
-  result: any = null;
+  decode: any = null;
   scanActive = false;
   status: string = 'primary';
 
@@ -30,9 +33,13 @@ export class Tab3Page implements AfterViewInit, OnDestroy {
     const allowed = await this.checkPermission();
     if (allowed) {
       this.scanActive = true;
-      const result = await BarcodeScanner.startScan({ targetedFormats: [SupportedFormat.PDF_417, SupportedFormat.QR_CODE, SupportedFormat.CODE_128] });
+      const result = await BarcodeScanner.startScan({
+        targetedFormats: [SupportedFormat.PDF_417],
+      });
       if (result.hasContent) {
-        this.result = result.content;
+        console.log({ decode: this.decode });
+        this.decode = this.get_data_json(result.content?.toString() || '');
+
         this.scanActive = false;
         this.status = 'primary';
       }
@@ -77,38 +84,49 @@ export class Tab3Page implements AfterViewInit, OnDestroy {
     this.status = 'primary';
     this.scanActive = false;
   }
-}
-/*
-https://github.com/capacitor-community/barcode-scanner/
-https://youtu.be/8GXfjDUCYjU
-How to Build an Ionic Barcode Scanner with Capacitor
 
-*/
-
-/*
-async startScan() {
-    // Check camera permission
-    // This is just a simple example, check out the better checks below
-    await BarcodeScanner.checkPermission({ force: true });
-
-    // make background of WebView transparent
-    // note: if you are using ionic this might not be enough, check below
-    BarcodeScanner.hideBackground();
-
-    const result = await BarcodeScanner.startScan(); // start scanning and wait for a result
-
-    // if the result has content
-    if (result.hasContent) {
-      console.log(result.content); // log the raw scanned content
-      this.decode = result.content || ''; // set the scanned content to the variable
+  get_data_json(code: string) {
+    if (
+      code.split('<RE>')[1] == undefined ||
+      code.split('<FE>')[1] == undefined ||
+      code.split('<MNT>')[1] == undefined ||
+      code.split('<F>')[1] == undefined
+    ) {
+      return 'No se pudo desifrar el codigo, intente nuevamente o registre de manera manual';
     }
+    let rut = code.split('<RE>')[1].split('</RE>')[0];
+    let fecha = code.split('<FE>')[1].split('</FE>')[0];
+    let monto = code.split('<MNT>')[1].split('</MNT>')[0];
+    let folio = code.split('<F>')[1].split('</F>')[0];
+    return {
+      rut: rut,
+      fecha: fecha,
+      monto: monto,
+      folio: folio,
+    };
   }
-*/
+  /*
+  URL donde consultar,
+  Logo,
+  Nombre de la Empresa,
+  */
+ /*
+ 1ro las empresas que se pueden escanear
+ Definir la estructura, que recibira
+ */
+}
 
-/*
-<manifest package="io.ionic.starter" xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
+const config={
+  siteKey: "6Ler1BkTAAAAALt-Yf2oAGGvm53sWdp3gt33g2f3",
+  pageurl: "http://cencosud.paperless.cl/BoletaJumbo/",
+  apiKey:"a8d110e46a19befe296ef4f887813bd2",
+  apiSubmitUrl: "http://2captcha.com/in.php",
+  apiRetrieveUrl:"http://2captcha.com/res.php"
+};
 
-<uses-permission android:name="android.permission.CAMERA" />
-    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
-
-*/
+const chromeOptions = {
+  //executablePath:"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  headless:true,
+  slowMo:10,
+  defaultViewport:null
+};
