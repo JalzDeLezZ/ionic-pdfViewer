@@ -115,18 +115,3 @@ export class Tab3Page implements AfterViewInit, OnDestroy {
  Definir la estructura, que recibira
  */
 }
-
-const config={
-  siteKey: "6Ler1BkTAAAAALt-Yf2oAGGvm53sWdp3gt33g2f3",
-  pageurl: "http://cencosud.paperless.cl/BoletaJumbo/",
-  apiKey:"a8d110e46a19befe296ef4f887813bd2",
-  apiSubmitUrl: "http://2captcha.com/in.php",
-  apiRetrieveUrl:"http://2captcha.com/res.php"
-};
-
-const chromeOptions = {
-  //executablePath:"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-  headless:true,
-  slowMo:10,
-  defaultViewport:null
-};
