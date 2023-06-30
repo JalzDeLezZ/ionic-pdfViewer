@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/tab1" (click)="onDismiss()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>PDF</ion-title>
+
+    <ion-button (click)="onDowload()" slot="end" fill="outline">
+      <ion-icon slot="icon-only" name="arrow-down-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <pdf-viewer
+    [src]="pdfSrc"
+    [render-text]="true"
+    [original-size]="false"
+    style="width: 400px; height: 500px"
+    ></pdf-viewer>
+</ion-content>
