@@ -7,11 +7,29 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="onwriteSecretFile()" expand="block" fill="solid" shape="round">
+          writeSecretFile
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="onreadSecretFile()" expand="block" fill="clear" shape="round">
+          readSecretFile
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="ondeleteSecretFile()" expand="block" fill="outline" shape="round">
+          deleteSecretFile
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="onreadFilePath()" expand="block" fill="solid" shape="round">
+          readFilePath
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

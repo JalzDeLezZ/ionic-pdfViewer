@@ -33,7 +33,61 @@
 $ git commit --amend -m "an updated commit message"
 # Remove branch
 $ git branch -D <branch_name>
+
+npm cache clean --force
+rm -rf node_modules
+npm install
+
 ```
+
+
+<br/>
+<hr/>
+<br/>
+
+## Others
+
+<details>
+  <summary>Plugins</summary>
+  ```bash
+    npm install @capacitor/filesystem
+    npx cap sync
+  ```
+</details>
+<details><summary>Build</summary>
+
+```bash
+# Build
+$ ionic cap build android
+$ ionic cap build ios
+$ ionic cap build android --prod --release
+$ ionic cap build ios --prod --release
+
+# Implementations
+$ ionic cap add android
+$ ionic cap add ios
+$ ionic cap copy android
+$ ionic cap copy ios
+$ ionic cap open android
+$ ionic cap open ios
+
+# Sync and update
+$ ionic cap sync android
+$ ionic cap sync ios
+$ ionic cap update android
+$ ionic cap update ios
+
+# Run
+$ ionic cap run android
+$ ionic cap run ios
+$ ionic cap run android -l --external
+$ ionic cap run ios -l --external
+
+
+
+```
+
+</details><br/>
 
 
 <br/>
