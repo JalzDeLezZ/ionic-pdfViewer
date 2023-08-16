@@ -9,4 +9,6 @@
       <p>@capacitor-community/barcode-scanner</p>
     </details>
   </li>
+
+  $ ionic cap run android -l --external
 </ul>

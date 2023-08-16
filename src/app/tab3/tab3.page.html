@@ -1,39 +1,49 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title slot="start"> Test Scanner </ion-title>
-    <ion-badge style="margin: 9px" slot="end" [color]="status" mode="ios"
-      >0</ion-badge
-    >
-  </ion-toolbar>
-</ion-header>
+<ng-container *ngIf="!scanActive; else elseTemplate">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title slot="start"> Test Scannerrr </ion-title>
+      <ion-badge style="margin: 9px" slot="end" [color]="status" mode="ios">0</ion-badge>
+    </ion-toolbar>
+  </ion-header>
 
-<!-- [style.--ion-background-color]="scanActive ? '#0000' : '#000'" -->
-<ion-content [fullscreen]="true">
-  <ion-grid fixed>
-    <ion-row class="btn-content">
-      <ion-col size="12">
-        <ion-button
-          (click)="startScan()"
-          expand="full"
-          fill="outline"
-          shape="round"
-          [hidden]="scanActive"
-        >
-          <ion-icon slot="start" name="scan"></ion-icon>
-          SCAN!!!
+  <ion-content [fullscreen]="true">
+    <ion-grid fixed>
+      <ion-row class="btn-content">
+        <ion-col size="12">
+          <ion-button (click)="startScan()" expand="full" fill="outline" shape="round">
+            <ion-icon slot="start" name="scan"></ion-icon>
+            SCAN!!!
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-label>{{decode | json}}</ion-label>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ng-container>
+<ng-template #elseTemplate>
+  <ion-content *ngIf="scanActive">
+    <section class="scann-content">
+      <ion-icon name="close-circle-outline" (click)="stopScan()" size="large"></ion-icon>
+      <div class="scan-box">
+        <span class="small-border--tl"></span>
+        <span class="small-border--tr"></span>
+        <span class="small-border--bl"></span>
+        <span class="small-border--br"></span>
+        <hr class="scan-line"/>
+      </div>
+      <article class="example">
+        <h3>Escanea el código de tu boleta</h3>
+        <img src="https://www.funcode-tech.com/images/QR_Intro_PDF_Sample.jpg" alt="">
+      </article>
+      <section class="cnt-button">
+        <h4>¿Problemas al escanear boleta?</h4>
+        <ion-button fill="outline">
+          Carga Manual
         </ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-label>{{decode | json}}</ion-label>
-    </ion-row>
-    <div class="scan-box" [hidden]="!scanActive"></div>
-    <ion-row class="scanner-buttons" [hidden]="!scanActive">
-      <ion-col size="12" class="ion-no-padding">
-        <ion-button (click)="stopScan()" expand="full" shape="round">
-          STOP
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-content>
+      </section>
+    </section>
+  </ion-content>
+</ng-template>
+<!-- <ion-button (click)="stopScan()" expand="full" shape="round">STOP</ion-button> -->

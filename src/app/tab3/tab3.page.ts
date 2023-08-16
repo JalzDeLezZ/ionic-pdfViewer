@@ -38,7 +38,8 @@ export class Tab3Page implements AfterViewInit, OnDestroy {
       });
       if (result.hasContent) {
         console.log({ decode: this.decode });
-        this.decode = this.get_data_json(result.content?.toString() || '');
+        this.decode = result.content?.toString() || '';
+        // this.decode = this.get_data_json(result.content?.toString() || '');
 
         this.scanActive = false;
         this.status = 'primary';
